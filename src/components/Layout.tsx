@@ -55,7 +55,7 @@ const Layout: React.VFC<Props> = ({ children, title }) => {
         <Flex align="center">
           <Link href="/" passHref>
             <Heading size="md" cursor="pointer" fontWeight="extrabold">
-              株式会社シーズ フロントエンドエンジニア 採用試験
+              株式会社シーズ フロントエンドエンジニア 採用テスト
             </Heading>
           </Link>
           {/* <Spacer />

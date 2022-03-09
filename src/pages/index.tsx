@@ -1,14 +1,7 @@
 import React from "react";
 
 // chakra
-import {
-  Box,
-  Heading,
-  Button,
-  UnorderedList,
-  ListItem,
-  Flex,
-} from "@chakra-ui/react";
+import { Box, Button, UnorderedList, ListItem, Flex } from "@chakra-ui/react";
 
 // component
 import Layout from "components/Layout";
@@ -21,11 +14,8 @@ import Link from "next/link";
 
 const Home = () => {
   return (
-    <Layout>
-      <Heading as="h2" size="md">
-        注意事項
-      </Heading>
-      <Box mt={5}>
+    <Layout title="はじめに">
+      <Box>
         <UnorderedList>
           <ListItem>
             注意事項テキストが入ります。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
@@ -42,9 +32,9 @@ const Home = () => {
         </UnorderedList>
       </Box>
       <Flex justifyContent="center" mt={10}>
-        <Link href="/blog" passHref>
+        <Link href="/test/part-1" passHref>
           <Button colorScheme="teal" size="lg" rightIcon={<ArrowForwardIcon />}>
-            はじめる
+            テストを開始する
           </Button>
         </Link>
       </Flex>
