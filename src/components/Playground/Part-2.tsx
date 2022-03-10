@@ -40,6 +40,7 @@ const Playground = () => {
     },
   ];
 
+  // 姓・名・年齢で構成されたデータ
   const [items, setItems] = useState<itemProps[]>(initItems);
 
   const initInputValues: itemProps = {
@@ -49,25 +50,17 @@ const Playground = () => {
     age: 0,
   };
 
+  // 入力データ
   const [inputValues, setInputValues] = useState<itemProps>(initInputValues);
 
-  // 入力値の設定
+  // 入力の処理
   const onChangeInputValue = (label: string, value: string | number): void => {
-    setInputValues((prev) => {
-      return {
-        ...prev,
-        [label]: value,
-        id: new Date().getTime().toString(16), // マイクロ秒単位値をidとして設定
-      };
-    });
+    // TODO: 入力処理を記述してください
   };
 
-  // 追加
-  const addItems = (): void => {
-    // itemsに追加
-    setItems((prev) => [...prev, inputValues]);
-    // 入力内容をクリア
-    setInputValues(initInputValues);
+  // 追加ボタンの処理
+  const addItem = (): void => {
+    // TODO: 追加処理を記述してください
   };
 
   return (
@@ -110,7 +103,7 @@ const Playground = () => {
           />
         </FormControl>
 
-        <Button onClick={addItems} width="50%" colorScheme="blue">
+        <Button onClick={addItem} width="50%" colorScheme="blue">
           追加
         </Button>
       </HStack>
@@ -118,8 +111,7 @@ const Playground = () => {
       <Box>
         {items.map((item, index) => (
           <Flex
-            // key={item.id} TODO: idは一旦ナシの方向で
-            key={index}
+            key={item.id}
             bgColor="gray.50"
             borderRadius={4}
             p={3}

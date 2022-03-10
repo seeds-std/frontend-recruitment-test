@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 
 //  chakra
 import { Box, Input, Text } from "@chakra-ui/react";
 
 const Playground = () => {
-  const [messege, setMessege] = useState<string>("");
-
+  // 入力イベント
   const onChangeMessege = (e) => {
-    setMessege(e.target.value);
+    // TODO: 入力内容の登録処理を記述してください。
   };
 
   return (
@@ -17,11 +16,15 @@ const Playground = () => {
           入力メッセージ
         </Text>
         <Text fontSize="lg" fontWeight="bold">
-          {messege || "メッセージを入れてください！"}
+          【表示箇所】
         </Text>
       </Box>
 
-      <Input placeholder="メッセージ" size="md" onChange={onChangeMessege} />
+      <Input
+        placeholder="メッセージ入力"
+        size="md"
+        onChange={onChangeMessege}
+      />
     </>
   );
 };
