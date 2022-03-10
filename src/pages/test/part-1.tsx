@@ -10,7 +10,7 @@ import TargetFileName from "components/TargetFileName";
 import Playground from "components/Playground/Part-1";
 
 //  chakra
-import { Box, Code, Heading } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 
 const TestPart1 = () => {
   return (
