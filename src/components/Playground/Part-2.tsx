@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 
 type itemProps = {
-  id: null | number;
+  id: null | string;
   last_name: string;
   first_name: string;
   age: number;
@@ -21,19 +21,19 @@ type itemProps = {
 const Playground = () => {
   const initItems: itemProps[] = [
     {
-      id: 1,
+      id: "1",
       last_name: "山田",
       first_name: "太郎",
       age: 30,
     },
     {
-      id: 2,
+      id: "2",
       last_name: "鈴木",
       first_name: "一郎",
       age: 31,
     },
     {
-      id: 3,
+      id: "3",
       last_name: "田中",
       first_name: "次郎",
       age: 32,
@@ -57,6 +57,7 @@ const Playground = () => {
       return {
         ...prev,
         [label]: value,
+        id: new Date().getTime().toString(16), // マイクロ秒単位値をidとして設定
       };
     });
   };
@@ -109,7 +110,7 @@ const Playground = () => {
           />
         </FormControl>
 
-        <Button onClick={addItems} width="50%" colorScheme="teal">
+        <Button onClick={addItems} width="50%" colorScheme="blue">
           追加
         </Button>
       </HStack>
