@@ -20,7 +20,7 @@ const TestPart3 = () => {
         <br />
         ・この一覧のソースコードが冗長なので、ループ処理や条件分岐を使用してコンポーネント化してください。
         <br />
-        ・あらかじめ用意したデータをご使用ください。
+        ・あらかじめ用意しているデータがありますので、そちらをご使用ください。
         <Box mt={4}>
           <TargetFileName codeName="src/components/Playground/Part-3.tsx" />
         </Box>
