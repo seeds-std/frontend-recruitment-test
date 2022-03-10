@@ -105,15 +105,15 @@ const Playground = () => {
       publishedAt: "2022-03-09",
       tags: [{ id: "5", name: "フロントエンド" }],
       starCount: 18,
+      isRecommend: false,
     },
   ];
 
   return (
     <VStack>
-      {items.map((item) => {
-        console.log(item);
-        return <Card item={item} key={item.id} />;
-      })}
+      {items.map((item) => (
+        <Card item={item} key={item.id} />
+      ))}
     </VStack>
   );
 };

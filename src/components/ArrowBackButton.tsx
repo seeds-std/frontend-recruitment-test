@@ -9,7 +9,12 @@ import { ArrowBackIcon } from "@chakra-ui/icons";
 // next
 import Link from "next/link";
 
-const ArrowBackButton = ({ children, href }) => {
+type Props = {
+  children: React.ReactNode;
+  href: string;
+};
+
+const ArrowBackButton: React.VFC<Props> = ({ children, href }) => {
   return (
     <Link href={href} passHref>
       <Button colorScheme="gray" size="lg" leftIcon={<ArrowBackIcon />}>

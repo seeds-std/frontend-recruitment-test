@@ -9,7 +9,12 @@ import { ArrowForwardIcon } from "@chakra-ui/icons";
 // next
 import Link from "next/link";
 
-const ArrowForwardButton = ({ children, href }) => {
+type Props = {
+  children: React.ReactNode;
+  href: string;
+};
+
+const ArrowForwardButton: React.VFC<Props> = ({ children, href }) => {
   return (
     <Link href={href} passHref>
       <Button colorScheme="teal" size="lg" rightIcon={<ArrowForwardIcon />}>

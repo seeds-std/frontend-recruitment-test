@@ -3,7 +3,11 @@ import React from "react";
 //  chakra
 import { Code, Heading } from "@chakra-ui/react";
 
-const TargetFileName = ({ codeName }) => {
+type Props = {
+  codeName: string;
+};
+
+const TargetFileName: React.VFC<Props> = ({ codeName }) => {
   return (
     <>
       <Heading size="xs" fontWeight="bold">

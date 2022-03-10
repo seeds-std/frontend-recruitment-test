@@ -3,7 +3,15 @@ import React from "react";
 //  chakra
 import { Flex } from "@chakra-ui/react";
 
-const ButtonWrapper = ({ children, justifyContent = "space-between" }) => {
+type Props = {
+  children: React.ReactNode;
+  justifyContent?: string;
+};
+
+const ButtonWrapper: React.VFC<Props> = ({
+  children,
+  justifyContent = "space-between",
+}) => {
   return (
     <Flex
       justifyContent={justifyContent}
