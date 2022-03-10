@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 // component
 import Layout from "components/Layout";
@@ -16,11 +16,11 @@ const TestPart3 = () => {
   return (
     <Layout title="第三問">
       <Description>
-        ・問題文この文章はダミーです。文字の大きさ、量、字間、行間等を確認するため。
+        ・擬似的な技術ブログの一覧があります。
         <br />
-        ・問題文この文章はダミーです。文字の大きさ、量、字間、行間等を確認するため。
+        ・この一覧のソースコードが冗長なので、ループ処理や条件分岐を使用してコンポーネント化してください。
         <br />
-        ・問題文この文章はダミーです。文字の大きさ、量、字間、行間等を確認するため。
+        ・あらかじめ用意したデータをご使用ください。
         <Box mt={4}>
           <TargetFileName codeName="src/components/Playground/Part-3.tsx" />
         </Box>

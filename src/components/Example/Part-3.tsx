@@ -1,137 +1,120 @@
-import React, { useState } from "react";
+import React from "react";
 
-//  chakra
+// chakra
 import {
-  HStack,
   Box,
-  Input,
-  Button,
+  Heading,
+  Text,
+  Tag,
+  TagLeftIcon,
+  TagLabel,
+  Wrap,
+  WrapItem,
+  VStack,
   Flex,
-  FormControl,
-  FormLabel,
+  Badge,
 } from "@chakra-ui/react";
 
-type itemProps = {
-  id: null | string;
-  last_name: string;
-  first_name: string;
-  age: number;
+// icon
+import { StarIcon } from "@chakra-ui/icons";
+
+type Props = {
+  item: {
+    id: string;
+    title: string;
+    publishedAt: string;
+    tags: { id: string; name: string }[];
+    starCount: number;
+    isRecommend: boolean;
+  };
+};
+
+const Card: React.VFC<Props> = ({ item }) => {
+  return (
+    <Box borderWidth="1px" borderRadius="md" width="100%">
+      <Box p={4}>
+        <Flex justifyContent="space-between">
+          <Heading as="h2" size="md" display="flex" alignItems="center">
+            {item.isRecommend && (
+              <Badge colorScheme="blue" mr={2}>
+                おすすめ
+              </Badge>
+            )}
+            {item.title}
+          </Heading>
+
+          {item.starCount > 0 && (
+            <Tag size="sm" variant="outline" colorScheme="yellow">
+              <TagLeftIcon as={StarIcon} />
+              <TagLabel>{item.starCount}</TagLabel>
+            </Tag>
+          )}
+        </Flex>
+
+        <Text fontSize="xs" color="GrayText" mt={1}>
+          {`${item.publishedAt} に公開`}
+        </Text>
+
+        {item.tags.length > 0 && (
+          <Wrap mt={4}>
+            {item?.tags.map((tag) => (
+              <WrapItem key={tag.id}>
+                <Tag size="sm">#{tag.name}</Tag>
+              </WrapItem>
+            ))}
+          </Wrap>
+        )}
+      </Box>
+    </Box>
+  );
 };
 
 const Playground = () => {
-  const initItems: itemProps[] = [
+  const items = [
     {
       id: "1",
-      last_name: "山田",
-      first_name: "太郎",
-      age: 30,
+      title: "楽しく学ぶJavaScript！",
+      publishedAt: "2022-04-10",
+      tags: [{ id: "1", name: "JavaScript" }],
+      starCount: 30,
+      isRecommend: true,
     },
     {
       id: "2",
-      last_name: "鈴木",
-      first_name: "一郎",
-      age: 31,
+      title: "おすすめの技術書籍 ３選！",
+      publishedAt: "2022-04-01",
+      tags: [],
+      starCount: 0,
+      isRecommend: true,
     },
     {
       id: "3",
-      last_name: "田中",
-      first_name: "次郎",
-      age: 32,
+      title: "Nextjs使って、便利アプリを作ってみた。",
+      publishedAt: "2022-03-30",
+      tags: [
+        { id: "2", name: "TypeScript" },
+        { id: "3", name: "Next.js" },
+        { id: "4", name: "React" },
+      ],
+      starCount: 1,
+      isRecommend: false,
+    },
+    {
+      id: "4",
+      title: "フロントエンジニアの５つの心得",
+      publishedAt: "2022-03-09",
+      tags: [{ id: "5", name: "フロントエンド" }],
+      starCount: 18,
     },
   ];
 
-  const [items, setItems] = useState<itemProps[]>(initItems);
-
-  const initInputValues: itemProps = {
-    id: null,
-    last_name: "",
-    first_name: "",
-    age: 0,
-  };
-
-  const [inputValues, setInputValues] = useState<itemProps>(initInputValues);
-
-  // 入力値の設定
-  const onChangeInputValue = (label: string, value: string | number): void => {
-    setInputValues((prev) => {
-      return {
-        ...prev,
-        [label]: value,
-        id: new Date().getTime().toString(16), // マイクロ秒単位値をidとして設定
-      };
-    });
-  };
-
-  // 追加
-  const addItems = (): void => {
-    // itemsに追加
-    setItems((prev) => [...prev, inputValues]);
-    // 入力内容をクリア
-    setInputValues(initInputValues);
-  };
-
   return (
-    <Box>
-      <HStack spacing={3} mb={4} alignItems="flex-end">
-        <FormControl>
-          <FormLabel htmlFor="last_name" color="GrayText" fontSize={14}>
-            姓
-          </FormLabel>
-          <Input
-            id="last_name"
-            size="md"
-            value={inputValues.last_name}
-            onChange={(e) => onChangeInputValue("last_name", e.target.value)}
-          />
-        </FormControl>
-
-        <FormControl>
-          <FormLabel htmlFor="first_name" color="GrayText" fontSize={14}>
-            名
-          </FormLabel>
-          <Input
-            id="first_name"
-            size="md"
-            value={inputValues.first_name}
-            onChange={(e) => onChangeInputValue("first_name", e.target.value)}
-          />
-        </FormControl>
-
-        <FormControl>
-          <FormLabel htmlFor="age" color="GrayText" fontSize={14}>
-            年齢
-          </FormLabel>
-          <Input
-            id="age"
-            size="md"
-            type="number"
-            value={inputValues.age}
-            onChange={(e) => onChangeInputValue("age", e.target.value)}
-          />
-        </FormControl>
-
-        <Button onClick={addItems} width="50%" colorScheme="blue">
-          追加
-        </Button>
-      </HStack>
-
-      <Box>
-        {items.map((item, index) => (
-          <Flex
-            // key={item.id} TODO: idは一旦ナシの方向で
-            key={index}
-            bgColor="gray.50"
-            borderRadius={4}
-            p={3}
-            mt={index ? 2 : 0}
-            justifyContent="space-between"
-          >
-            <Box>{`${item.last_name} ${item.first_name}`}</Box>
-            <Box>{`${item.age}歳`}</Box>
-          </Flex>
-        ))}
-      </Box>
-    </Box>
+    <VStack>
+      {items.map((item) => {
+        console.log(item);
+        return <Card item={item} key={item.id} />;
+      })}
+    </VStack>
   );
 };
 
