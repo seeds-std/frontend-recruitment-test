@@ -7,7 +7,7 @@ const TargetFileName = ({ codeName }) => {
   return (
     <>
       <Heading size="xs" fontWeight="bold">
-        # 対象ファイル
+        # 作業ファイル
       </Heading>
       <Code colorScheme="gray">{codeName}</Code>
     </>

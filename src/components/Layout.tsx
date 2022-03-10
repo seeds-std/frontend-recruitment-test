@@ -1,22 +1,10 @@
 import React from "react";
 
 // chakra
-import {
-  Container,
-  Flex,
-  Box,
-  VStack,
-  Heading,
-  Text,
-  Center,
-  Drawer,
-  DrawerContent,
-  useDisclosure,
-} from "@chakra-ui/react";
+import { Container, Flex, Box, VStack, Heading, Text } from "@chakra-ui/react";
 
 // next
 import Link from "next/link";
-import { useRouter } from "next/router";
 
 type Props = {
   children: React.ReactNode;
@@ -24,10 +12,6 @@ type Props = {
 };
 
 const Layout: React.VFC<Props> = ({ children, title }) => {
-  const router = useRouter();
-
-  const { isOpen, onToggle, onClose } = useDisclosure();
-
   return (
     <VStack minH="100vh" w="100%" spacing={0}>
       {/* header */}
@@ -50,47 +34,8 @@ const Layout: React.VFC<Props> = ({ children, title }) => {
               株式会社シーズ フロントエンドエンジニア 採用テスト
             </Heading>
           </Link>
-          {/* <Spacer />
-          <HStack display={{ base: "none", sm: "block" }}>
-            {isHome || (
-              <Link href="/" passHref>
-                <Button colorScheme="gray" size="sm" variant="ghost">
-                  HOME
-                </Button>
-              </Link>
-            )}
-            <Link href="/blog" passHref>
-              <Button colorScheme="gray" size="sm" variant="ghost">
-                BLOG
-              </Button>
-            </Link>
-            <Link href="/" passHref>
-              <Button colorScheme="gray" size="sm" variant="ghost">
-                NEWS
-              </Button>
-            </Link>
-            <Link href="/" passHref>
-              <Button colorScheme="gray" size="sm" variant="ghost">
-                CONTACT
-              </Button>
-            </Link>
-          </HStack>
-          <IconButton
-            display={{ base: "block", sm: "none" }}
-            icon={isOpen ? <SmallCloseIcon /> : <HamburgerIcon />}
-            aria-label="menu"
-            onClick={onToggle}
-          /> */}
         </Flex>
       </Box>
-
-      <Drawer onClose={onClose} isOpen={isOpen} size="full" placement="top">
-        <DrawerContent>
-          <Center h="100%" fontSize={24}>
-            Coming soon...
-          </Center>
-        </DrawerContent>
-      </Drawer>
 
       {/* main */}
       <Box as="main" flexGrow={1} w="100%">

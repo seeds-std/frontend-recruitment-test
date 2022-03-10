@@ -5,7 +5,7 @@ import { Box, Input, Text } from "@chakra-ui/react";
 
 const Playground = () => {
   // 入力イベント
-  const onChangeMessege = (e) => {
+  const onChangeMessege = (e: React.ChangeEvent<HTMLInputElement>) => {
     // TODO: 入力内容の登録処理を記述してください。
   };
 

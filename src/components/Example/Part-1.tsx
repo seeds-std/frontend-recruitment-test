@@ -6,7 +6,7 @@ import { Box, Input, Text } from "@chakra-ui/react";
 const Playground = () => {
   const [messege, setMessege] = useState<string>("");
 
-  const onChangeMessege = (e) => {
+  const onChangeMessege = (e: React.ChangeEvent<HTMLInputElement>) => {
     setMessege(e.target.value);
   };
 
