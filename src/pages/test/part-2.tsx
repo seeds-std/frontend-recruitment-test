@@ -8,7 +8,15 @@ import ArrowBackButton from "components/ArrowBackButton";
 import ArrowForwardButton from "components/ArrowForwardButton";
 
 //  chakra
-import { HStack, Box, Input, Button } from "@chakra-ui/react";
+import {
+  HStack,
+  Box,
+  Input,
+  Button,
+  Flex,
+  FormControl,
+  FormLabel,
+} from "@chakra-ui/react";
 
 const Contents = () => {
   type itemProps = {
@@ -40,17 +48,17 @@ const Contents = () => {
   ];
   const [items, setItems] = useState<itemProps[]>(initItems);
 
-  const initInputItem: itemProps = {
+  const initInputValues: itemProps = {
     id: null,
     last_name: "",
     first_name: "",
     age: 0,
   };
-  const [inputItem, setInputItem] = useState<itemProps>(initInputItem);
+  const [inputValues, setInputValues] = useState<itemProps>(initInputValues);
 
   // 入力値の設定
   const onChangeInputValue = (label: string, value: string | number): void => {
-    setInputItem((prev) => {
+    setInputValues((prev) => {
       return {
         ...prev,
         [label]: value,
@@ -61,51 +69,72 @@ const Contents = () => {
   // 追加
   const addItems = (): void => {
     // itemsに追加
-    setItems((prev) => [...prev, inputItem]);
+    setItems((prev) => [...prev, inputValues]);
     // 入力内容をクリア
-    setInputItem(initInputItem);
+    setInputValues(initInputValues);
   };
 
   return (
     <Box>
-      <HStack spacing={3} mb={4}>
-        <Input
-          placeholder="姓"
-          size="md"
-          value={inputItem.last_name}
-          onChange={(e) => onChangeInputValue("last_name", e.target.value)}
-        />
-        <Input
-          placeholder="名"
-          size="md"
-          value={inputItem.first_name}
-          onChange={(e) => onChangeInputValue("first_name", e.target.value)}
-        />
-        <Input
-          placeholder="年齢"
-          size="md"
-          type="number"
-          value={inputItem.age}
-          onChange={(e) => onChangeInputValue("age", e.target.value)}
-        />
-        <Button onClick={addItems} width="50%">
+      <HStack spacing={3} mb={4} alignItems="flex-end">
+        <FormControl>
+          <FormLabel htmlFor="last_name" color="GrayText" fontSize={14}>
+            姓
+          </FormLabel>
+          <Input
+            id="last_name"
+            size="md"
+            value={inputValues.last_name}
+            onChange={(e) => onChangeInputValue("last_name", e.target.value)}
+          />
+        </FormControl>
+
+        <FormControl>
+          <FormLabel htmlFor="first_name" color="GrayText" fontSize={14}>
+            名
+          </FormLabel>
+          <Input
+            id="first_name"
+            size="md"
+            value={inputValues.first_name}
+            onChange={(e) => onChangeInputValue("first_name", e.target.value)}
+          />
+        </FormControl>
+
+        <FormControl>
+          <FormLabel htmlFor="age" color="GrayText" fontSize={14}>
+            年齢
+          </FormLabel>
+          <Input
+            id="age"
+            size="md"
+            type="number"
+            value={inputValues.age}
+            onChange={(e) => onChangeInputValue("age", e.target.value)}
+          />
+        </FormControl>
+
+        <Button onClick={addItems} width="50%" colorScheme="teal">
           追加
         </Button>
       </HStack>
 
       <Box>
         {items.map((item, index) => (
-          <Box
+          <Flex
             // key={item.id} TODO: idは一旦ナシの方向で
             key={index}
-            borderWidth="1px"
-            borderColor="gray.200"
+            bgColor="gray.50"
+            // borderWidth="1px"
+            // borderColor="gray.200"
             borderRadius={4}
             p={3}
             mt={index ? 2 : 0}
+            justifyContent="space-between"
           >
-            {`${item.last_name} ${item.first_name}【${item.age}歳】`}
-          </Box>
+            <Box>{`${item.last_name} ${item.first_name}`}</Box>
+            <Box>{`${item.age}歳`}</Box>
+          </Flex>
         ))}
       </Box>
     </Box>

@@ -4,10 +4,11 @@ import React, { useState } from "react";
 import Layout from "components/Layout";
 import Description from "components/Description";
 import ButtonWrapper from "components/ButtonWrapper";
+import ArrowBackButton from "components/ArrowBackButton";
 import ArrowForwardButton from "components/ArrowForwardButton";
 
 //  chakra
-import { Box, Input, Text } from "@chakra-ui/react";
+import { Box, Input, Text, Code } from "@chakra-ui/react";
 
 const Contents = () => {
   const [messege, setMessege] = useState<string>("");
@@ -19,7 +20,9 @@ const Contents = () => {
   return (
     <>
       <Box mb={4} textAlign="center">
-        <Text fontSize="sm">【入力メッセージ】</Text>
+        <Text fontSize="sm" color="GrayText">
+          入力メッセージ
+        </Text>
         <Text fontSize="lg" fontWeight="bold">
           {messege || "メッセージを入れてください！"}
         </Text>
@@ -37,13 +40,17 @@ const TestPart1 = () => {
         ・入力フォームの値を、【表示箇所】の部分に表示してください。
         <br />
         ・値が空の場合は、「メッセージを入れてください！」という文言を表示するようにしてください。
+        <Box mt={4}>
+          <Code colorScheme="gray">src/pages/test/part-1.tsx</Code>
+        </Box>
       </Description>
 
       <Box mt={10} minHeight={300}>
         <Contents />
       </Box>
 
-      <ButtonWrapper justifyContent="center">
+      <ButtonWrapper>
+        <ArrowBackButton href="/">戻る</ArrowBackButton>
         <ArrowForwardButton href="/test/part-2">次の問題へ</ArrowForwardButton>
       </ButtonWrapper>
     </Layout>
