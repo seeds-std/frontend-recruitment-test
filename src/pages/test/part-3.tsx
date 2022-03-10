@@ -6,32 +6,27 @@ import Description from "components/Description";
 import ButtonWrapper from "components/ButtonWrapper";
 import ArrowBackButton from "components/ArrowBackButton";
 import ArrowForwardButton from "components/ArrowForwardButton";
+import TargetFileName from "components/TargetFileName";
+import Playground from "components/Playground/Part-3";
 
 //  chakra
-import { Box, Button } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 
 const TestPart3 = () => {
-  const Contents = () => {
-    const [count, setCount] = useState(0);
-
-    // useEffect(() => {
-    //   setCount((prev) => prev + 1);
-    // }, [count]);
-
-    return <Box>テスト</Box>;
-  };
-
   return (
     <Layout title="第三問">
       <Description>
-        問題文この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+        ・問題文この文章はダミーです。文字の大きさ、量、字間、行間等を確認するため。
         <br />
-        問題文この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+        ・問題文この文章はダミーです。文字の大きさ、量、字間、行間等を確認するため。
         <br />
-        問題文この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。
+        ・問題文この文章はダミーです。文字の大きさ、量、字間、行間等を確認するため。
+        <Box mt={4}>
+          <TargetFileName codeName="src/components/Playground/Part-3.tsx" />
+        </Box>
       </Description>
-      <Box mt={10} minHeight={300}>
-        <Contents />
+      <Box my={12} minHeight={150}>
+        <Playground />
       </Box>
       <ButtonWrapper>
         <ArrowBackButton href="/test/part-2">戻る</ArrowBackButton>
