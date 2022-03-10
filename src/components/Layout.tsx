@@ -5,21 +5,14 @@ import {
   Container,
   Flex,
   Box,
-  Button,
-  Spacer,
   VStack,
-  HStack,
   Heading,
   Text,
   Center,
-  IconButton,
   Drawer,
   DrawerContent,
   useDisclosure,
 } from "@chakra-ui/react";
-
-// icon
-import { HamburgerIcon, SmallCloseIcon } from "@chakra-ui/icons";
 
 // next
 import Link from "next/link";
@@ -32,7 +25,6 @@ type Props = {
 
 const Layout: React.VFC<Props> = ({ children, title }) => {
   const router = useRouter();
-  const isHome = router.pathname === "/";
 
   const { isOpen, onToggle, onClose } = useDisclosure();
 

@@ -7,7 +7,6 @@ const ButtonWrapper = ({ children, justifyContent = "space-between" }) => {
   return (
     <Flex
       justifyContent={justifyContent}
-      pt={4}
       // borderTop="1px"
       // borderColor="gray.200"
     >
