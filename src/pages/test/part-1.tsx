@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 // component
 import Layout from "components/Layout";
@@ -6,32 +6,11 @@ import Description from "components/Description";
 import ButtonWrapper from "components/ButtonWrapper";
 import ArrowBackButton from "components/ArrowBackButton";
 import ArrowForwardButton from "components/ArrowForwardButton";
+import TargetFileName from "components/TargetFileName";
+import Playground from "components/Playground/Part-1";
 
 //  chakra
-import { Box, Input, Text, Code } from "@chakra-ui/react";
-
-const Contents = () => {
-  const [messege, setMessege] = useState<string>("");
-
-  const onChangeMessege = (e) => {
-    setMessege(e.target.value);
-  };
-
-  return (
-    <>
-      <Box mb={4} textAlign="center">
-        <Text fontSize="sm" color="GrayText">
-          入力メッセージ
-        </Text>
-        <Text fontSize="lg" fontWeight="bold">
-          {messege || "メッセージを入れてください！"}
-        </Text>
-      </Box>
-
-      <Input placeholder="メッセージ" size="md" onChange={onChangeMessege} />
-    </>
-  );
-};
+import { Box, Code, Heading } from "@chakra-ui/react";
 
 const TestPart1 = () => {
   return (
@@ -41,12 +20,12 @@ const TestPart1 = () => {
         <br />
         ・値が空の場合は、「メッセージを入れてください！」という文言を表示するようにしてください。
         <Box mt={4}>
-          <Code colorScheme="gray">src/pages/test/part-1.tsx</Code>
+          <TargetFileName codeName="src/components/Playground/Part-1.tsx" />
         </Box>
       </Description>
 
-      <Box mt={10} minHeight={300}>
-        <Contents />
+      <Box my={12} minHeight={150}>
+        <Playground />
       </Box>
 
       <ButtonWrapper>
