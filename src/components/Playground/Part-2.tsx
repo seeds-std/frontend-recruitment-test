@@ -65,7 +65,7 @@ const Playground = () => {
 
   return (
     <Box>
-      <HStack spacing={3} mb={5} alignItems="flex-end">
+      <HStack spacing={3} mb={4} alignItems="flex-end">
         <FormControl>
           <FormLabel htmlFor="last_name" color="GrayText" fontSize={14}>
             姓

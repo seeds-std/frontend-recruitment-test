@@ -55,6 +55,7 @@ const Playground = () => {
       publishedAt: "2022-03-09",
       tags: [{ id: "5", name: "フロントエンド" }],
       starCount: 18,
+      isRecommend: false,
     },
   ];
 

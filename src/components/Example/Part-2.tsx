@@ -22,21 +22,21 @@ const Playground = () => {
   const initItems: itemProps[] = [
     {
       id: "1",
-      last_name: "山田",
-      first_name: "太郎",
-      age: 30,
-    },
-    {
-      id: "2",
       last_name: "鈴木",
       first_name: "一郎",
       age: 31,
     },
     {
-      id: "3",
-      last_name: "田中",
+      id: "2",
+      last_name: "山田",
       first_name: "次郎",
       age: 32,
+    },
+    {
+      id: "3",
+      last_name: "田中",
+      first_name: "三郎",
+      age: 33,
     },
   ];
 
@@ -110,7 +110,7 @@ const Playground = () => {
           />
         </FormControl>
 
-        <Button onClick={addItems} width="50%" colorScheme="blue">
+        <Button onClick={addItem} width="50%" colorScheme="blue">
           追加
         </Button>
       </HStack>
