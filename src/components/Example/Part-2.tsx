@@ -63,7 +63,7 @@ const Playground = () => {
   };
 
   // 追加
-  const addItems = (): void => {
+  const addItem = (): void => {
     // itemsに追加
     setItems((prev) => [...prev, inputValues]);
     // 入力内容をクリア
