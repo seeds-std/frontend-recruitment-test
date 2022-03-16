@@ -118,8 +118,7 @@ const Playground = () => {
       <Box>
         {items.map((item, index) => (
           <Flex
-            // key={item.id} TODO: idは一旦ナシの方向で
-            key={index}
+            key={item.id}
             bgColor="gray.50"
             borderRadius={4}
             p={3}
