@@ -34,10 +34,22 @@ const Home = () => {
           <ListItem>コンポーネント設計</ListItem>
         </UnorderedList>
         <Text>
+          【使用技術】Next.js / React / TypeScript / chakra-ui
+          (UIフレームワーク)
+        </Text>
+
+        <Text mt={1}>
+          UIフレームワークのchakra-uiは、画面をレイアウトする上で使用しておりますが、
+          <br />
+          テストはこちらの知識がなくても解ける内容となっております。予めご了承ください。
+        </Text>
+
+        <Text mt={8}>
           テストを開始すると問題が表示されます。
           <br />
           作業ファイルを修正して指示された動作を実装してください。
         </Text>
+
         <Text mt={3}>
           準備ができましたら「テストを開始する」をクリックしてください。
         </Text>
